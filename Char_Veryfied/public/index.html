@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Use of Dynamic Class</title>
+        <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+        <script>
+            function ChangeTheme(){
+                var themeCheckBox=document.getElementById("theme");
+                var formContainer=document.getElementById("formContainer");
+                if(themeCheckBox.checked){
+                    formContainer.className="dark-theme";
+                    document.querySelector("button").className="btn btn-dark w-100";
+                }
+                else{
+                    formContainer.className="light-theme";
+                    document.querySelector("button").className="btn btn-primary w-100"
+                }
+            }
+            function VeryfyName(){
+                var username = document.getElementById("txtUser").value;
+                if(username.charCodeAt(0)>=65 && username.charCodeAt(0)<=90){
+                    document.querySelector("p").innerHTML="";
+                } else{
+                    document.querySelector("p").innerHTML= "User Name Must Start With Upper Case".fontcolor('red');
+                }
+
+            }
+        </script>
+        <style>
+            .form{
+                border: 2px solid rgb(137, 108, 108);
+                padding: 20px;
+                width: 250px;
+                margin-top: 10px;
+            }
+
+            .dark-theme{
+                background-color: rgb(144, 42, 42);
+                color: white;
+                border: 2px solid black;
+                padding: 20px;
+                width: 250px;
+                margin-top: 10px;
+            }
+            .light-theme{
+                background-color: rgba(229, 212, 212, 0.911);
+                color: black;
+                border: 2px solid black;
+                padding: 20px;
+                width: 250px;
+                margin-top: 10px;
+            }
+        </style>
+
+
+
+    </head>
+
+    <body class="container-fluid">
+
+        <div class="form" id="formContainer">
+            <div class="form-switch">
+                <input type="checkbox" id="theme" onchange="ChangeTheme()" class="form-check-input">Dark Theme
+
+
+            </div>
+            <h2>Register User</h2>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text" id="txtUser" placeholder="First_Letter_UpperCase" onkeyup="VeryfyName()"></dd>
+                <p></p>
+                <dt>Password</dt>
+                <dd><input type="password"></dd>
+                <dt>Email</dt>
+                <dd><input type="email"></dd>
+            </dl>
+            <button class="btn w-100">Login</button>
+        </div>
+
+
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </body>
+</html>

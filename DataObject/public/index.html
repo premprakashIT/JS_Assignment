@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <title>JSON EXAMPLE</title>
+        <script>
+            var products=[
+                {Name: "Woment Clothes", Price: 5600, Photo:"/assets/women_clothes.jpg"},
+                {Name: "Cloths", Price: 5000, Photo:"/assets/Cloths1.jpg"},
+                {Name: "Cloths", Price: 5000, Photo:"/assets/Cloths1.jpg"},
+                {Name: "Woment Clothes", Price: 5600, Photo:"/assets/women_clothes.jpg"},
+                {Name: "Woment Clothes", Price: 5600, Photo:"/assets/women_clothes.jpg"},
+                {Name: "Cloths", Price: 5000, Photo:"/assets/Cloths1.jpg"},
+                {Name: "FootWear", Price:3000, Photo:"/assets/footwear.jpg"}
+
+        
+
+            ]
+            function bodyload(){
+                for(var product of products)
+                {
+                    var tr=document.createElement("tr");
+                    var tdName=document.createElement("td");
+                    var  tdPrice=document.createElement("td");
+                    var tdPhoto=document.createElement("td");
+                    tdName.innerHTML=product.Name;
+                    tdPrice.innerHTML=product.Price;
+                    var img =document.createElement("img");
+                    img.src=product.Photo;
+                    img.width=335;
+                    img.height=100;
+
+                    tdPhoto.appendChild(img);
+                    tr.appendChild(tdName)
+                    tr.appendChild(tdPrice);
+                    tr.appendChild(tdPhoto);
+                    
+                    document.querySelector("tbody").appendChild(tr);
+                }
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <table border="1" width="500">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Preview</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+
+    </body>
+</html>
